@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_64c/card_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -35,6 +36,19 @@ class HomePage extends StatelessWidget {
             ),
             Divider(),
             ListTile(
+              leading: Icon(Icons.card_giftcard),
+              title: Text("CardPage"),
+              hoverColor: Colors.greenAccent,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CardPage()),
+                );
+              },
+            ),
+            Divider(),
+            ListTile(
               leading: Icon(Icons.contact_page),
               title: Text("Contact"),
               hoverColor: Colors.greenAccent,
@@ -58,7 +72,12 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CardPage()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.greenAccent,
                   foregroundColor: Colors.white,
@@ -71,7 +90,11 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Elevated Button Pressed")),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.greenAccent,
                 foregroundColor: Colors.white,
